@@ -1,0 +1,102 @@
+{
+  "groups": [
+    {
+      "name": "alchemy.ip",
+      "type": "cloud.alchemy.ip.config.IpManagementProperties",
+      "description": "Configuration properties for Alchemy IP Management Tool."
+    },
+    {
+      "name": "alchemy.ip.async",
+      "type": "cloud.alchemy.ip.config.IpManagementProperties$Async",
+      "description": "Async processing configuration for IP storage operations."
+    },
+    {
+      "name": "alchemy.ip.table",
+      "type": "cloud.alchemy.ip.config.IpManagementProperties$Table",
+      "description": "Database table configuration for IP address storage."
+    },
+    {
+      "name": "alchemy.ip.schema",
+      "type": "cloud.alchemy.ip.config.IpManagementProperties$Schema",
+      "description": "Schema initialization configuration."
+    }
+  ],
+  "properties": [
+    {
+      "name": "alchemy.ip.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether IP management is enabled.",
+      "defaultValue": true
+    },
+    {
+      "name": "alchemy.ip.trust-all-proxies",
+      "type": "java.lang.Boolean",
+      "description": "Whether to trust all proxy headers for IP extraction.",
+      "defaultValue": true
+    },
+    {
+      "name": "alchemy.ip.trusted-proxies",
+      "type": "java.util.List<java.lang.String>",
+      "description": "List of trusted proxy IP addresses or CIDR ranges."
+    },
+    {
+      "name": "alchemy.ip.async.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether async IP storage is enabled.",
+      "defaultValue": true
+    },
+    {
+      "name": "alchemy.ip.async.core-pool-size",
+      "type": "java.lang.Integer",
+      "description": "Core thread pool size for async operations.",
+      "defaultValue": 2
+    },
+    {
+      "name": "alchemy.ip.async.max-pool-size",
+      "type": "java.lang.Integer",
+      "description": "Maximum thread pool size for async operations.",
+      "defaultValue": 10
+    },
+    {
+      "name": "alchemy.ip.async.queue-capacity",
+      "type": "java.lang.Integer",
+      "description": "Queue capacity for async task executor.",
+      "defaultValue": 100
+    },
+    {
+      "name": "alchemy.ip.async.thread-name-prefix",
+      "type": "java.lang.String",
+      "description": "Thread name prefix for async threads.",
+      "defaultValue": "ip-storage-"
+    },
+    {
+      "name": "alchemy.ip.table.name",
+      "type": "java.lang.String",
+      "description": "Name of the IP addresses table.",
+      "defaultValue": "ip_addresses"
+    },
+    {
+      "name": "alchemy.ip.table.auto-create",
+      "type": "java.lang.Boolean",
+      "description": "Whether to auto-create the table if it doesn't exist.",
+      "defaultValue": true
+    },
+    {
+      "name": "alchemy.ip.schema.use-hibernate-ddl",
+      "type": "java.lang.Boolean",
+      "description": "Whether to use Hibernate DDL auto for schema management.",
+      "defaultValue": true
+    }
+  ],
+  "hints": [
+    {
+      "name": "alchemy.ip.async.core-pool-size",
+      "values": [
+        { "value": 1, "description": "Single threaded" },
+        { "value": 2, "description": "Default - suitable for low traffic" },
+        { "value": 4, "description": "Suitable for medium traffic" },
+        { "value": 8, "description": "Suitable for high traffic" }
+      ]
+    }
+  ]
+}

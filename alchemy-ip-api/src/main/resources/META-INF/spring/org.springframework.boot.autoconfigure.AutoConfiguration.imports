@@ -1,0 +1,2 @@
+cloud.alchemy.ip.api.config.IpManagementApiAutoConfiguration
+cloud.alchemy.ip.api.config.IpManagementApiSecurityAutoConfiguration
